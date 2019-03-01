@@ -1,5 +1,5 @@
 # localStoragePy
-[![HitCount](http://hits.dwyl.io/jkelol111/localStorage.svg)](http://hits.dwyl.io/jkelol111/localStoragePy) ![PyPI](https://img.shields.io/pypi/v/localStoragePy.svg?style=flat-square)
+[![HitCount](http://hits.dwyl.io/jkelol111/localStorage.svg)](http://hits.dwyl.io/jkelol111/localStoragePy) ![PyPI](https://img.shields.io/pypi/v/localStoragePy.svg?style=flat-square) ![Travis (.org)](https://img.shields.io/travis/jkelol111/localStoragePy.svg?style=flat-square)
 
 A familiar API from the Web, adapted to storing data locally with Python.
 
