@@ -1,0 +1,1 @@
+#localStoragePy doesn't rely on any PyPI dependencies :)
