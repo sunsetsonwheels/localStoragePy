@@ -4,11 +4,12 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setup(name='localStoragePy',
-      version='0.1',
+      version='0.1.2',
       description='A familiar API from the Web, adapted to storing data locally with Python.',
       url='http://github.com/jkelol111/localStoragePy',
       author='Nguyen Thanh Nam (jkelol111)',
       long_description=long_description,
+      long_description_content_type="text/markdown",
       author_email='vietbetatester@outlook.com',
       license='MIT',
       packages=['localStoragePy'],

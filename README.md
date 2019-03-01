@@ -1,5 +1,5 @@
 # localStoragePy
-[![HitCount](http://hits.dwyl.io/jkelol111/localStorage.svg)](http://hits.dwyl.io/jkelol111/localStoragePy) 
+[![HitCount](http://hits.dwyl.io/jkelol111/localStorage.svg)](http://hits.dwyl.io/jkelol111/localStoragePy) [![PyPI version](https://badge.fury.io/py/localStoragePy.svg)](https://badge.fury.io/py/localStoragePy)
 
 A familiar API from the Web, adapted to storing data locally with Python.
 
