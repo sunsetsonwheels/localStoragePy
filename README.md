@@ -7,9 +7,9 @@ A familiar API from the Web, adapted to storing data locally with Python.
 
 1. Install using PyPi: `$ pip3 install localStoragePy`
 
-2. Import into your project: `from localStoragePy import localStorage as lc`
+2. Import into your project: `from localStoragePy import localStoragePy`
 
-3. Setup localStorage: `localStorage = lc('your-app-url')` (replace `your-app-url` with whatever you want)
+3. Setup localStorage: `localStorage = localStoragePy('your-app-url')` (replace `your-app-url` with whatever you want (excluding: path separators `/ \` or other disallowed characters in file name for your intended platform))
 
 4. Use your typical localStorage syntax to store/read your strings:
 

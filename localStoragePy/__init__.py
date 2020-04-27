@@ -1,40 +1,40 @@
-from os.path import isfile, isdir
-from os import remove, mkdir, chmod, access, W_OK
-from stat import S_IWUSR
-from shutil import rmtree
-from sys import platform
-from pathlib import Path
+import os
+import shutil
+import stat
+import pathlib
 
 def onErrorPatch(self, func, path, exc_info):
-    if not access(path, W_OK):
-        chmod(path, S_IWUSR)
+    if not os.access(path, os.W_OK):
+        os.chmod(path, stat.S_IWUSR)
     func(path)
 
-class localStorage:
+class localStoragePy:
     def __init__(self, appURL):
-        self.localStorageRoot = str(Path.home())+"/.localStorage"
-        self.appLocalStorageRoot = self.localStorageRoot+"/"+appURL
-        if not isdir(self.localStorageRoot):
-            mkdir(self.localStorageRoot)
-        if not isdir(self.appLocalStorageRoot):
-            mkdir(self.appLocalStorageRoot)
+        if appURL.count(os.sep) > 0:
+            raise TypeError('appURL may not contain path separators!')
+        self.localStorageRoot = os.path.join(pathlib.Path.home() , ".localStorage")
+        self.appLocalStorageRoot = os.path.join(self.localStorageRoot, appURL)
+        if not os.path.isdir(self.localStorageRoot):
+            os.mkdir(self.localStorageRoot)
+        if not os.path.isdir(self.appLocalStorageRoot):
+            os.mkdir(self.appLocalStorageRoot)
     def getItem(self, item):
-        itemFile = self.appLocalStorageRoot+"/"+item
-        if isfile(itemFile):
+        itemFile = os.path.join(self.appLocalStorageRoot, item)
+        if os.path.isfile(itemFile):
             with open(itemFile, "r") as f:
-                return f.read()
+                return str(f.read())
         else:
             return None
     def setItem(self, item, value):
-        itemFile = self.appLocalStorageRoot+"/"+item
-        if isfile(itemFile):
-            remove(itemFile)
+        itemFile = os.path.join(self.appLocalStorageRoot, item)
+        if os.path.isfile(itemFile):
+            os.remove(itemFile)
         with open(itemFile, 'w') as f:
-            f.write(value)
+            f.write(str(value))
     def removeItem(self, item):
-        itemFile = self.appLocalStorageRoot+"/"+item
-        if isfile(itemFile):
-            remove(itemFile)
+        itemFile = os.path.join(self.appLocalStorageRoot, item)
+        if os.path.isfile(itemFile):
+            os.remove(itemFile)
     def clear(self):
-        if isdir(self.appLocalStorageRoot):
-            rmtree(self.appLocalStorageRoot, onerror=onErrorPatch)
+        if os.path.isdir(self.appLocalStorageRoot):
+            shutil.rmtree(self.appLocalStorageRoot, onerror=onErrorPatch)

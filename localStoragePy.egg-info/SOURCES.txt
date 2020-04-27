@@ -1,0 +1,8 @@
+README.md
+setup.py
+localStoragePy/__init__.py
+localStoragePy.egg-info/PKG-INFO
+localStoragePy.egg-info/SOURCES.txt
+localStoragePy.egg-info/dependency_links.txt
+localStoragePy.egg-info/not-zip-safe
+localStoragePy.egg-info/top_level.txt
