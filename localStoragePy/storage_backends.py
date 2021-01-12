@@ -87,7 +87,11 @@ class SQLiteStorageBackend(BasicStorageBackend):
         self.db_connection.commit()
         
     def get_item(self, key: str) -> str:
-        return self.db_cursor.execute("SELECT value FROM localStoragePy WHERE key = ?", (key,)).fetchone()[0]
+        fetched_value = self.db_cursor.execute("SELECT value FROM localStoragePy WHERE key = ?", (key,)).fetchone()
+        if type(fetched_value) is tuple:
+            return fetched_value[0]
+        else:
+            return None
 
     def set_item(self, key: str, value: any) -> None:
         if len(self.db_cursor.execute("SELECT key FROM localStoragePy WHERE key = ?", (key,)).fetchall()) == 0:

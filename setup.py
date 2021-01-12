@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setup(name='localStoragePy',
-      version='0.2.0',
+      version='0.2.1',
       description='A familiar API from the Web, adapted to storing data locally with Python.',
       url='http://github.com/jkelol111/localStoragePy',
       author='Nguyen Thanh Nam (jkelol111)',
