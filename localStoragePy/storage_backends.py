@@ -95,10 +95,9 @@ class SQLiteStorageBackend(BasicStorageBackend):
 
     def set_item(self, key: str, value: any) -> None:
         if len(self.db_cursor.execute("SELECT key FROM localStoragePy WHERE key = ?", (key,)).fetchall()) == 0:
-            self.db_cursor.execute("INSERT INTO localStoragePy (key, value) VALUES (?, ?)", (key, value))
-            self.db_cursor.execute("UPDATE localStoragePy SET value = ? WHERE key = ?", (value, key))
+            self.db_cursor.execute("INSERT INTO localStoragePy (key, value) VALUES (?, ?)", (key, str(value)))
         else:
-            self.db_cursor.execute("UPDATE localStoragePy SET value = ? WHERE key = ?", (value, key))
+            self.db_cursor.execute("UPDATE localStoragePy SET value = ? WHERE key = ?", (str(value), key))
         self.db_connection.commit()
 
     def remove_item(self, key: str) -> None:

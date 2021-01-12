@@ -1,7 +1,7 @@
 __author__ = 'jkelol111'
 __copyright__ = 'Copyright (C) 2021-present jkelol111'
 __license__ = 'MIT License'
-__version__ = '0.2.1'
+__version__ = '0.2.2'
 
 from .storage_backends import BasicStorageBackend, TextStorageBackend, SQLiteStorageBackend, JSONStorageBackend
 
