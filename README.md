@@ -9,7 +9,15 @@ A familiar API from the Web, adapted to storing data locally with Python.
 
 2. Import into your project: `from localStoragePy import localStoragePy`
 
-3. Setup localStorage: `localStorage = localStoragePy('your-app-url')` (replace `your-app-url` with whatever you want (excluding: path separators `/ \` or other disallowed characters in file name for your intended platform))
+3. Setup localStorage: `localStorage = localStoragePy('your-app-namespace', 'your-storage-backend')` 
+
+- `your-app-namespace`: whatever you want (example: `me.jkelol111.mypythonapp`) excluding path separators `/ \` or other disallowed characters in file name for your intended platform
+
+- `your-storage-backend`: your preferred storage backend (`sqlite` by default).
+    - Available storage backends:
+        - `text`: text files for each storage item.
+        - `sqlite`: a single database for all storage items.
+        - `json`: a single JSON file for all storage items.
 
 4. Use your typical localStorage syntax to store/read your strings:
 
