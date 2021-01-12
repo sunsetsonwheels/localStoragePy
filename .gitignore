@@ -1,6 +1,7 @@
 __pycache__
 .localStoragePy-devenv
 .localStoragePy.egg-info
+localStoragePy.egg-info
 build
 dist
 .vscode
