@@ -131,7 +131,7 @@ class JSONStorageBackend(BasicStorageBackend):
         return None
 
     def set_item(self, key: str, value: any) -> None:
-        self.json_data[key] = value
+        self.json_data[key] = str(value)
         self.commit_to_disk()
 
     def remove_item(self, key: str) -> None: 
